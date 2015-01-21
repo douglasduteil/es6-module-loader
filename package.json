@@ -22,7 +22,8 @@
     }
   ],
   "devDependencies": {
-    "chai": "^1.10.0",
+    "assertive-chai": "^1.0.0",
+    "gesalakacula": "^1.0.0",
     "grunt": "~0.4.1",
     "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-jshint": "~0.6.0",
@@ -51,7 +52,8 @@
   },
   "main": "lib/index",
   "scripts": {
-    "test": "karma start --single-run",
+    "test": "mocha test/index.js",
+    "test:browsers": "karma start --single-run",
     "test:polyfill": "karma start karma-w-polyfill.conf.js --single-run",
     "test:perf": "karma start karma-benchmark.conf.js --single-run",
     "test:sl": "karma start karma-w-sl.conf.js"

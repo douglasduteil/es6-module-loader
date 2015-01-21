@@ -2,7 +2,7 @@
 
 // Change base url to the karma "base"
 System.trace = true;
-System.baseURL += 'base/';
+//System.baseURL += 'base/';
 
 //
 
@@ -16,6 +16,9 @@ describe('System', function() {
 
   it('should be a instance of Loader', function() {
     expect(System).to.be.an.instanceof(Reflect.Loader);
+    assert.instanceOf(Number, Reflect.Loader,
+      'Expect System to be an instance of Reflect.Loader'
+    );
   });
 
   describe('#normalize', function() {
@@ -439,7 +442,7 @@ describe('System', function() {
 
   });
 
-  if (window.Worker) {
+  if (typeof window != 'undefined' && window.Worker) {
     it('should loading inside of a Web Worker', function(done) {
       var worker = new Worker(System.baseURL + 'test/worker/worker.js');
 
